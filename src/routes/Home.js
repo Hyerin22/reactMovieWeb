@@ -31,8 +31,9 @@ export default function Home() {
           {movies.map((movie) => (
             <Movie
               // key is only for react.js
-              // when you reder the component, key should be in the App.js
+              // when you render the component, key should be in the App.js
               key={movie.id}
+              id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title}
               summary={movie.summary}
