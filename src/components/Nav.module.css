@@ -1,0 +1,34 @@
+.navCont {
+  align-items: center;
+  display: flex;
+  position: relative;
+  top: 0px;
+  justify-content: space-between;
+  padding: 40px 80px;
+  background-color: transparent;
+}
+
+.logo {
+  width: auto;
+}
+
+.linkCont {
+  display: flex;
+  padding: 0 20px;
+  align-items: center;
+  list-style-type: none;
+}
+.linkCont > li {
+  padding: 0 20px;
+}
+.linkCont > li > a {
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.iconNav {
+  align-items: center;
+}
+.iconNav > a {
+  padding: 0 10px;
+}

@@ -1,18 +1,16 @@
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Detail from "./routes/Detail";
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Home from "./routes/Home";
+// import "./styles.css";
 
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="movie/:id" element={<Detail />}></Route>
-      </Routes>
-    </Router>
-  );
-}
+// function App() {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/" element={<Home />}></Route>
+//         <Route path="movie/:id" element={<Detail />}></Route>
+//       </Routes>
+//     </Router>
+//   );
+// }
 
-export default App;
+// export default App;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Movie from "../components/Movie";
+import Nav from "../components/Nav";
 
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
@@ -28,7 +29,8 @@ export default function Home() {
         <h1>loading...</h1>
       ) : (
         <div>
-          {movies.map((movie) => (
+          <Nav />
+          {/* {movies.map((movie) => (
             <Movie
               // key is only for react.js
               // when you render the component, key should be in the App.js
@@ -39,7 +41,7 @@ export default function Home() {
               summary={movie.summary}
               genres={movie.genres}
             />
-          ))}
+          ))} */}
         </div>
       )}
     </div>
