@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import Coverflow from "react-coverflow";
+
+import styles from "./Home.module.css";
+
 import Movie from "../components/Movie";
 import Nav from "../components/Nav";
 
@@ -7,6 +11,10 @@ export default function Home() {
   // movie details api: https://yts.mx/api/v2/movie_details.json?movie_id=15527
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+
+  const fn = function () {
+    /* do your action */
+  };
 
   const getMovies = async () => {
     const json = await (
@@ -30,6 +38,35 @@ export default function Home() {
       ) : (
         <div>
           <Nav />
+          <p className={styles.title}>Welcome to RINFLIX</p>
+          <Coverflow
+            displayQuantityOfSide={3}
+            navigation={false}
+            infiniteScroll={true}
+            enableHeading={true}
+            clickable={true}
+            active={0}
+            media={{
+              "@media (max-width: 900px)": {
+                width: "600px",
+                height: "300px",
+              },
+              "@media (min-width: 900px)": {
+                width: "1100px",
+                height: "600px",
+              },
+            }}
+          >
+            {movies.map((movie) => (
+              <img
+                src={movie.medium_cover_image}
+                alt={movie.title}
+                // eslint-disable-next-line no-template-curly-in-string
+                data-action="/movie/${movie.id}"
+              />
+            ))}
+          </Coverflow>
+
           {/* {movies.map((movie) => (
             <Movie
               // key is only for react.js
