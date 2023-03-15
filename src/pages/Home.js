@@ -8,6 +8,8 @@ import Movie from "../components/Movie";
 import Nav from "../components/Nav";
 import Slide from "../components/Slide";
 
+const logoImage = process.env.PUBLIC_URL + "Rinflix-logo.png";
+
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
   // movie details api: https://yts.mx/api/v2/movie_details.json?movie_id=15527
@@ -27,7 +29,7 @@ export default function Home() {
   useEffect(() => {
     getMovies();
   }, []);
-  console.log(movies);
+  // console.log(movies);
 
   return (
     <div>
@@ -37,14 +39,17 @@ export default function Home() {
         <div>
           <Nav />
           <p className={styles.title}>Welcome to RINFLIX</p>
-          <div className={styles.coverflowCont}>
+
+          <div className={styles.middle}>
+            {/* coverflow */}
             <Coverflow
               displayQuantityOfSide={3}
               navigation={false}
-              infiniteScroll={true}
+              infiniteScroll={false}
               enableHeading={true}
               clickable={true}
-              active={0}
+              enableScroll={true}
+              // active={0}
               media={{
                 "@media (max-width: 900px)": {
                   width: "600px",
@@ -65,6 +70,27 @@ export default function Home() {
                 />
               ))}
             </Coverflow>
+
+            {/* Slide */}
+            <div className={styles.slideCont}>
+              <p className={styles.subTitle}>Now Trending</p>
+              <Slide movieContents={movies} />
+            </div>
+
+            <div className={styles.slideCont}>
+              <p className={styles.subTitle}>Romance</p>
+              <Slide movieContents={movies} />
+            </div>
+
+            <div className={styles.slideCont}>
+              <p className={styles.subTitle}>Thriller</p>
+              <Slide movieContents={movies} />
+            </div>
+
+            <div className={styles.slideCont}>
+              <p className={styles.subTitle}>Family</p>
+              <Slide movieContents={movies} />
+            </div>
           </div>
 
           {/* {movies.map((movie) => (
@@ -79,23 +105,11 @@ export default function Home() {
               genres={movie.genres}
             />
           ))} */}
-          <p>Now Trending</p>
-          {movies.map((movie) => (
-            <Slide
-              id={movie.id}
-              coverImg={movie.medium_cover_image}
-              movieTitle={movie.title}
-
-              // content={
-              //   <Link to={`/movie/${movie.id}`}>
-              //     <img src={movie.small_cover_image} alt={movie.title} />
-              //     <p>{movie.title}</p>
-              //   </Link>
-              // }
-            />
-          ))}
         </div>
       )}
+      <div className={styles.footer}>
+        <img src={logoImage} alt="footer logo" />
+      </div>
     </div>
   );
 }

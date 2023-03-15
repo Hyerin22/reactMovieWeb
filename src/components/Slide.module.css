@@ -1,4 +1,47 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .slideCont {
-  margin: 0 100px;
-  padding: 10px 40px;
+  width: 1000px;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  flex-direction: row;
+  transition: all 0.4s ease;
+}
+
+.slide > div {
+  margin-right: 10px;
+}
+
+.slide > div > h2,
+ul {
+  display: none;
+}
+
+.iconL {
+  margin-right: 30px;
+}
+.iconR {
+  margin-left: 30px;
+}
+
+.iconL,
+.iconR {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.4s ease;
+}
+
+.iconL:hover,
+.iconR:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
