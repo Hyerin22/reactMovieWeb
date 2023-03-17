@@ -1,14 +1,35 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
+import styles from "./Movie.module.css";
+
 // movie component: receive all these properties from parent component
-export default function Movie({ id, coverImg, title, summary, genres }) {
+export default function Movie({
+  id,
+  coverImg,
+  title,
+  genres,
+  rating,
+  movieYear,
+}) {
   return (
-    <div>
-      <Link to={`/movie/${id}`}>
-        <img src={coverImg} alt={title} />
-      </Link>
-      <h2>
+    <div className={styles.movieCont}>
+      <div className={styles.movieImg}>
+        <Link to={`/movie/${id}`}>
+          <img src={coverImg} alt={title} />
+        </Link>
+      </div>
+      <div className={styles.whenHover}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.rating}>⭐️ {rating}</p>
+        <p className={styles.year}>{movieYear}</p>
+        <div className={styles.genre}>
+          {genres.map((g) => (
+            <p key={g}>#{g}</p>
+          ))}
+        </div>
+      </div>
+      {/* <h2>
         <Link to={`/movie/${id}`}>{title}</Link>
       </h2>
       <p>{summary}</p>
@@ -16,7 +37,7 @@ export default function Movie({ id, coverImg, title, summary, genres }) {
         {genres.map((g) => (
           <li key={g}>{g}</li>
         ))}
-      </ul>
+      </ul> */}
     </div>
   );
 }

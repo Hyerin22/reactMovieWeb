@@ -57,6 +57,7 @@ export default function Slide({ movieContents, apiLink }) {
               id={movie.id}
               coverImg={movie.medium_cover_image}
               title={movie.title}
+              rating={movie.rating}
               movieYear={movie.year}
               genres={movie.genres}
             />

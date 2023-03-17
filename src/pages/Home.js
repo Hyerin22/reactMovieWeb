@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Coverflow from "react-coverflow";
 
 import styles from "./Home.module.css";
@@ -124,9 +124,9 @@ export default function Home() {
               genres={movie.genres}
             />
           ))} */}
-          <div className={styles.footer}>
+          <NavLink to="/" className={styles.footer}>
             <img src={logoImage} alt="footer logo" />
-          </div>
+          </NavLink>
         </div>
       )}
     </div>

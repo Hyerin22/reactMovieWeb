@@ -11,9 +11,9 @@ const logoImage = process.env.PUBLIC_URL + "Rinflix-logo.png";
 export default function Nav() {
   return (
     <div className={styles.navCont}>
-      <div>
+      <NavLink to="/">
         <img className={styles.logo} src={logoImage} alt="logo" />
-      </div>
+      </NavLink>
       <NavLinks />
       <div className={styles.iconNav}>
         <NavLink>
