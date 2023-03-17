@@ -15,6 +15,13 @@ export default function Home() {
   // movie details api: https://yts.mx/api/v2/movie_details.json?movie_id=15527
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  // const Group_obj = {
+  //   "Now Trending": "minimun_rating=9",
+  //   Romance: "genre=romance",
+  //   Thriller: "genre=thriller",
+  //   Family: "genre=family",
+  // };
+  // const Group_key_arr = Object.keys(Group_obj);
 
   const getMovies = async () => {
     const json = await (
@@ -72,24 +79,36 @@ export default function Home() {
             </Coverflow>
 
             {/* Slide */}
+            {/* Now Trending */}
             <div className={styles.slideCont}>
               <p className={styles.subTitle}>Now Trending</p>
-              <Slide movieContents={movies} />
+              <Slide
+                apiLink={`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`}
+              />
             </div>
 
+            {/* Romance */}
             <div className={styles.slideCont}>
               <p className={styles.subTitle}>Romance</p>
-              <Slide movieContents={movies} />
+              <Slide
+                apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=romance`}
+              />
             </div>
 
+            {/* Thriller */}
             <div className={styles.slideCont}>
               <p className={styles.subTitle}>Thriller</p>
-              <Slide movieContents={movies} />
+              <Slide
+                apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=thriller`}
+              />
             </div>
 
+            {/* Family */}
             <div className={styles.slideCont}>
               <p className={styles.subTitle}>Family</p>
-              <Slide movieContents={movies} />
+              <Slide
+                apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=family`}
+              />
             </div>
           </div>
 
@@ -105,11 +124,11 @@ export default function Home() {
               genres={movie.genres}
             />
           ))} */}
+          <div className={styles.footer}>
+            <img src={logoImage} alt="footer logo" />
+          </div>
         </div>
       )}
-      <div className={styles.footer}>
-        <img src={logoImage} alt="footer logo" />
-      </div>
     </div>
   );
 }
