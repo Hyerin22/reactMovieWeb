@@ -12,10 +12,22 @@
   margin: 80px 130px;
 }
 
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.linkCont {
+  display: flex;
+  align-items: center;
+  justify-content: baseline;
+}
+
 .subTitle {
   color: #66fcf1;
   font-size: 30px;
-  margin-bottom: 75px;
+  text-decoration: none;
+  margin-right: 20px;
 }
 
 .slideCont {

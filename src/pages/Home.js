@@ -8,6 +8,9 @@ import Movie from "../components/Movie";
 import Nav from "../components/Nav";
 import Slide from "../components/Slide";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+
 const logoImage = process.env.PUBLIC_URL + "Rinflix-logo.png";
 
 export default function Home() {
@@ -81,7 +84,16 @@ export default function Home() {
             {/* Slide */}
             {/* Now Trending */}
             <div className={styles.slideCont}>
-              <p className={styles.subTitle}>Now Trending</p>
+              <NavLink to="nowTrending">
+                <div className={styles.linkCont}>
+                  <p className={styles.subTitle}>Now Trending</p>
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    color="#66FCF1"
+                    size="xl"
+                  />
+                </div>
+              </NavLink>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`}
               />
@@ -89,7 +101,16 @@ export default function Home() {
 
             {/* Romance */}
             <div className={styles.slideCont}>
-              <p className={styles.subTitle}>Romance</p>
+              <NavLink to="Romance">
+                <div className={styles.linkCont}>
+                  <p className={styles.subTitle}>Romance</p>
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    color="#66FCF1"
+                    size="xl"
+                  />
+                </div>
+              </NavLink>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=romance`}
               />
@@ -97,7 +118,16 @@ export default function Home() {
 
             {/* Thriller */}
             <div className={styles.slideCont}>
-              <p className={styles.subTitle}>Thriller</p>
+              <NavLink to="Thriller">
+                <div className={styles.linkCont}>
+                  <p className={styles.subTitle}>Thriller</p>
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    color="#66FCF1"
+                    size="xl"
+                  />
+                </div>
+              </NavLink>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=thriller`}
               />
@@ -105,7 +135,16 @@ export default function Home() {
 
             {/* Family */}
             <div className={styles.slideCont}>
-              <p className={styles.subTitle}>Family</p>
+              <NavLink to="Family">
+                <div className={styles.linkCont}>
+                  <p className={styles.subTitle}>Family</p>
+                  <FontAwesomeIcon
+                    icon={faArrowUpRightFromSquare}
+                    color="#66FCF1"
+                    size="xl"
+                  />
+                </div>
+              </NavLink>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=family`}
               />
