@@ -4,14 +4,12 @@ import Coverflow from "react-coverflow";
 
 import styles from "./Home.module.css";
 
-import Movie from "../components/Movie";
 import Nav from "../components/Nav";
 import Slide from "../components/Slide";
+import Footer from "../components/Footer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
-
-const logoImage = process.env.PUBLIC_URL + "Rinflix-logo.png";
 
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
@@ -151,21 +149,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* {movies.map((movie) => (
-            <Movie
-              // key is only for react.js
-              // when you render the component, key should be in the App.js
-              key={movie.id}
-              id={movie.id}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              summary={movie.summary}
-              genres={movie.genres}
-            />
-          ))} */}
-          <NavLink to="/" className={styles.footer}>
-            <img src={logoImage} alt="footer logo" />
-          </NavLink>
+          {/* Footer */}
+          <Footer />
         </div>
       )}
     </div>

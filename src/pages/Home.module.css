@@ -21,6 +21,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: baseline;
+  margin-bottom: 40px;
 }
 
 .subTitle {

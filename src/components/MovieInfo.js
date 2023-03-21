@@ -16,7 +16,6 @@ export default function MovieInfo({
   runtime,
   genres,
   summary,
-  fav = false,
 }) {
   const [toggle, setToggle] = useState(false);
 
@@ -45,37 +44,19 @@ export default function MovieInfo({
                     <FontAwesomeIcon
                       className={styles.heartIcon}
                       icon={faHeart}
-                      color="#E27D60"
-                      size="2xl"
+                      color="#EC6640"
+                      size="3x"
                     />
                   ) : (
                     <FontAwesomeIcon
                       className={styles.heartIcon}
                       icon={faHeart}
-                      color="#E27D60"
+                      color="#EC6640"
                       style={{ opacity: 1 }}
-                      size="2xl"
+                      size="3x"
                     />
                   )}
                 </button>
-                {/* {fav === false ? (
-                  <FontAwesomeIcon
-                    className={styles.heartIcon}
-                    icon={faHeart}
-                    color="#E27D60"
-                    size="xl"
-                    onClick={onFav}
-                  />
-                ) : (
-                  <FontAwesomeIcon
-                    className={styles.heartIcon}
-                    icon={faHeart}
-                    color="#E27D60"
-                    style={{ opacity: 1 }}
-                    size="xl"
-                    onClick={onFav}
-                  />
-                )} */}
               </div>
             </div>
 
