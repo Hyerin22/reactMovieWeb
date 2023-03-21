@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 import Movie from "./Movie";
 import styles from "./Slide.module.css";
@@ -12,7 +11,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Slide({ movieContents, apiLink }) {
+export default function Slide({ apiLink }) {
   const [moveNext, setMoveNext] = useState(0);
   const [movies, setMovies] = useState([]);
 
@@ -71,6 +70,6 @@ export default function Slide({ movieContents, apiLink }) {
   );
 }
 
-Movie.propTypes = {
-  movieContents: PropTypes.string.isRequired,
+Slide.propTypes = {
+  apiLink: PropTypes.string.isRequired,
 };

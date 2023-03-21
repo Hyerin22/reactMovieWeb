@@ -1,0 +1,13 @@
+.title {
+  font-weight: 600;
+  font-size: 50px;
+  text-align: center;
+  margin: 60px 100px;
+  margin-bottom: 130px;
+}
+
+.movieContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 0 80px;
+}

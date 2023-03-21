@@ -95,7 +95,7 @@ export default function Home() {
                 </div>
               </NavLink>
               <Slide
-                apiLink={`https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`}
+                apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&minimum_rating=9&sort_by=year`}
               />
             </div>
 
