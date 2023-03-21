@@ -6,6 +6,7 @@ import styles from "./NowTrending.module.css";
 
 import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
+import Footer from "../components/Footer";
 
 export default function NowTrending() {
   const [movies, setMovies] = useState([]);
@@ -44,6 +45,7 @@ export default function NowTrending() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
