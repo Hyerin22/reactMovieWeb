@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import styles from "./MovieInfo.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieInfo({
   coverImg,
@@ -16,7 +16,13 @@ export default function MovieInfo({
   runtime,
   genres,
   summary,
+  fav = false,
 }) {
+  const [toggle, setToggle] = useState(false);
+
+  const onFav = () => {
+    setToggle((current) => !current);
+  };
   return (
     <div>
       <div className={styles.container}>
@@ -33,7 +39,44 @@ export default function MovieInfo({
             {/* movie title and heart */}
             <div className={styles.infoTop}>
               <h3 className={styles.title}>{title}</h3>
-              <FontAwesomeIcon icon={faHeart} color="#E27D60" size="xl" />
+              <div>
+                <button onClick={onFav} className={styles.heart}>
+                  {!toggle ? (
+                    <FontAwesomeIcon
+                      className={styles.heartIcon}
+                      icon={faHeart}
+                      color="#E27D60"
+                      size="2xl"
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      className={styles.heartIcon}
+                      icon={faHeart}
+                      color="#E27D60"
+                      style={{ opacity: 1 }}
+                      size="2xl"
+                    />
+                  )}
+                </button>
+                {/* {fav === false ? (
+                  <FontAwesomeIcon
+                    className={styles.heartIcon}
+                    icon={faHeart}
+                    color="#E27D60"
+                    size="xl"
+                    onClick={onFav}
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    className={styles.heartIcon}
+                    icon={faHeart}
+                    color="#E27D60"
+                    style={{ opacity: 1 }}
+                    size="xl"
+                    onClick={onFav}
+                  />
+                )} */}
+              </div>
             </div>
 
             {/* movie year, rating, runtime */}
