@@ -1,14 +1,15 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { json, Link, NavLink } from "react-router-dom";
 
 import styles from "./NowTrending.module.css";
 
 import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
+// import MovieRank from "../components/MovieRank";
 
-export default function NowTrending() {
+export default function NowTrending({ each }) {
   const [movies, setMovies] = useState([]);
 
   const getTrending = async () => {
@@ -31,17 +32,21 @@ export default function NowTrending() {
         <p className={styles.title}>Now Trending</p>
         <div className={styles.movieContent}>
           {movies.map((movie) => (
-            <MovieInfo
-              key={movie.id}
-              id={movie.id}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              rating={movie.rating}
-              movieYear={movie.year}
-              genres={movie.genres}
-              summary={movie.summary}
-              runtime={movie.runtime}
-            />
+            <div style={{ position: "relative" }}>
+              <p className={styles.rank}>{movies.indexOf(movies[1])}</p>
+              <MovieInfo
+                key={movie.id}
+                id={movie.id}
+                coverImg={movie.medium_cover_image}
+                title={movie.title}
+                rating={movie.rating}
+                movieYear={movie.year}
+                genres={movie.genres}
+                summary={movie.summary}
+                runtime={movie.runtime}
+                length={movie.length}
+              />
+            </div>
           ))}
         </div>
       </div>
