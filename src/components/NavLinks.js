@@ -7,7 +7,7 @@ export default function NavLinks() {
   return (
     <ul className={styles.linkCont}>
       <li>
-        <NavLink to="/">Now Trending</NavLink>
+        <NavLink to="/NowTrending">Now Trending</NavLink>
       </li>
       <li>
         <NavLink to="/">Romance</NavLink>

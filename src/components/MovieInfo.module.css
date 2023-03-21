@@ -84,8 +84,7 @@ p {
 .heartIcon:hover {
   transform: scale(1.2);
   transition: all 0.2s ease;
-  /* cursor: pointer; */
-  /* opacity: 1; */
+  cursor: pointer;
 }
 
 .heart {
