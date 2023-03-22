@@ -26,7 +26,7 @@ export default function Thriller() {
     <div>
       <Nav />
       <div>
-        <p className={styles.title}>Thriller</p>
+        <p className={styles.title}># Thriller</p>
         <div className={styles.movieContent}>
           {movies.map((movie, index) => (
             <div>

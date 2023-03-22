@@ -16,7 +16,7 @@ export default function NavLinks() {
         <NavLink to="/Thriller">Thriller</NavLink>
       </li>
       <li>
-        <NavLink to="/">Family</NavLink>
+        <NavLink to="/Family">Family</NavLink>
       </li>
     </ul>
   );

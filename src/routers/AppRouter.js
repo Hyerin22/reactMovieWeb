@@ -5,6 +5,7 @@ import Home from "../pages/Home";
 import NowTrending from "../pages/NowTrending";
 import Romance from "../pages/Romance";
 import Thriller from "../pages/Thriller";
+import Family from "../pages/Family";
 
 export default function AppRouter() {
   return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
         <Route path="nowTrending" element={<NowTrending />}></Route>
         <Route path="romance" element={<Romance />}></Route>
         <Route path="thriller" element={<Thriller />}></Route>
+        <Route path="family" element={<Family />}></Route>
       </Routes>
     </Router>
   );

@@ -6,13 +6,13 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 
-export default function Romance() {
+export default function Family() {
   const [movies, setMovies] = useState([]);
 
   const getTrending = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?&genre=romance&sort_by=rating`
+        `https://yts.mx/api/v2/list_movies.json?&genre=family&sort_by=rating`
       )
     ).json();
     setMovies(json.data.movies);
@@ -26,7 +26,7 @@ export default function Romance() {
     <div>
       <Nav />
       <div>
-        <p className={styles.title}># Romance</p>
+        <p className={styles.title}># Family</p>
         <div className={styles.movieContent}>
           {movies.map((movie, index) => (
             <div>
