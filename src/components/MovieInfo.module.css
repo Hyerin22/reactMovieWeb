@@ -5,7 +5,7 @@ p {
 }
 
 .container {
-  margin-bottom: 180px;
+  margin-bottom: 250px;
   display: flex;
   justify-content: center;
 }
@@ -39,7 +39,7 @@ p {
 .movieImg {
   margin-right: 25px;
   position: absolute;
-  top: -50px;
+  top: -30px;
 }
 .movieImg > img {
   width: 170px;

@@ -6,7 +6,6 @@ import styles from "./MovieInfo.module.css";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import MovieRank from "./MovieRank";
 
 export default function MovieInfo({
   coverImg,
@@ -17,11 +16,8 @@ export default function MovieInfo({
   runtime,
   genres,
   summary,
-  // movieContents,
 }) {
   const [toggle, setToggle] = useState(false);
-
-  // const rank = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const onFav = () => {
     setToggle((current) => !current);
@@ -29,11 +25,6 @@ export default function MovieInfo({
   return (
     <div>
       <div className={styles.container}>
-        <div className={styles.rankingNumber}>
-          {/* {movieContent.index}
-          {console.log(movieContents.indexOf([title]))}
-          <MovieRank movieContents={movieContents} title={title} /> */}
-        </div>
         <div className={styles.contentBox}>
           {/* Movie Image(Box Leftside) */}
           <Link to={`/movie/${id}`}>

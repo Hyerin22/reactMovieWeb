@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { json, Link, NavLink } from "react-router-dom";
 
 import styles from "./NowTrending.module.css";
 
@@ -9,13 +8,13 @@ import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 // import MovieRank from "../components/MovieRank";
 
-export default function NowTrending({ each }) {
+export default function NowTrending() {
   const [movies, setMovies] = useState([]);
 
   const getTrending = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?limit=10&minimum_rating=9&sort_by=year`
+        `https://yts.mx/api/v2/list_movies.json?limit=10&minimum_rating=9&sort_by=rating`
       )
     ).json();
     setMovies(json.data.movies);
@@ -31,9 +30,12 @@ export default function NowTrending({ each }) {
       <div>
         <p className={styles.title}>Now Trending</p>
         <div className={styles.movieContent}>
-          {movies.map((movie) => (
+          {movies.map((movie, index) => (
             <div style={{ position: "relative" }}>
-              <p className={styles.rank}>{movies.indexOf(movies[1])}</p>
+              {/* Rank Number */}
+              <p className={styles.rank}>{index + 1}</p>
+
+              {/* Movies */}
               <MovieInfo
                 key={movie.id}
                 id={movie.id}
