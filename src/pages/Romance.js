@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import styles from "./NowTrending.module.css";
+import styles from "./GenrePages.module.css";
 
 import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
@@ -29,7 +29,7 @@ export default function Romance() {
         <p className={styles.title}>Romance</p>
         <div className={styles.movieContent}>
           {movies.map((movie, index) => (
-            <div style={{ position: "relative" }}>
+            <div>
               {/* Movies */}
               <MovieInfo
                 key={movie.id}

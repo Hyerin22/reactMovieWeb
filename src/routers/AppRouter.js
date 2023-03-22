@@ -4,6 +4,7 @@ import Detail from "../pages/Detail";
 import Home from "../pages/Home";
 import NowTrending from "../pages/NowTrending";
 import Romance from "../pages/Romance";
+import Thriller from "../pages/Thriller";
 
 export default function AppRouter() {
   return (
@@ -13,6 +14,7 @@ export default function AppRouter() {
         <Route path="movie/:id" element={<Detail />}></Route>
         <Route path="nowTrending" element={<NowTrending />}></Route>
         <Route path="romance" element={<Romance />}></Route>
+        <Route path="thriller" element={<Thriller />}></Route>
       </Routes>
     </Router>
   );
