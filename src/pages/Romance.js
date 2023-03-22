@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import styles from "./NowTrending.module.css";
 
@@ -7,13 +6,13 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 
-export default function NowTrending() {
+export default function Romance() {
   const [movies, setMovies] = useState([]);
 
   const getTrending = async () => {
     const json = await (
       await fetch(
-        `https://yts.mx/api/v2/list_movies.json?limit=10&minimum_rating=9&sort_by=rating`
+        `https://yts.mx/api/v2/list_movies.json?&genre=romance&sort_by=rating`
       )
     ).json();
     setMovies(json.data.movies);
@@ -27,13 +26,10 @@ export default function NowTrending() {
     <div>
       <Nav />
       <div>
-        <p className={styles.title}>Now Trending</p>
+        <p className={styles.title}>Romance</p>
         <div className={styles.movieContent}>
           {movies.map((movie, index) => (
             <div style={{ position: "relative" }}>
-              {/* Rank Number */}
-              <p className={styles.rank}>{index + 1}</p>
-
               {/* Movies */}
               <MovieInfo
                 key={movie.id}

@@ -10,7 +10,7 @@ export default function NavLinks() {
         <NavLink to="/NowTrending">Now Trending</NavLink>
       </li>
       <li>
-        <NavLink to="/">Romance</NavLink>
+        <NavLink to="/Romance">Romance</NavLink>
       </li>
       <li>
         <NavLink to="/">Thriller</NavLink>
