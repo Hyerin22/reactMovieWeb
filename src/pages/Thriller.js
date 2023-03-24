@@ -15,7 +15,7 @@ export default function Thriller() {
   const moviesPerPage = 4;
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+  const currentPageMoveis = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
   const getData = async () => {
     const json = await (
@@ -52,7 +52,7 @@ export default function Thriller() {
       <div>
         <p className={styles.title}># Thriller</p>
         <div className={styles.movieContent}>
-          {currentMovies.map((movie) => (
+          {currentPageMoveis.map((movie) => (
             <div>
               {/* Movies */}
               <MovieInfo

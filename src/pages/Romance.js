@@ -15,7 +15,7 @@ export default function Romance() {
   const moviesPerPage = 4;
   const indexOfLastMovie = currentPage * moviesPerPage;
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
-  const currentMovies = movies.slice(indexOfFirstMovie, indexOfLastMovie);
+  const currentPageMoveis = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
   const getData = async () => {
     const json = await (
@@ -53,7 +53,7 @@ export default function Romance() {
       <div>
         <p className={styles.title}># Romance</p>
         <div className={styles.movieContent}>
-          {currentMovies.map((movie) => (
+          {currentPageMoveis.map((movie) => (
             <div>
               {/* Movies */}
               <MovieInfo
