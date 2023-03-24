@@ -19,8 +19,19 @@ export default function Pagination({
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
-        <li key={i} className={styles.eachNumber}>
-          <button onClick={() => handlePageClick(i)}>{i}</button>
+        <li
+          key={i}
+          className={`${styles.eachNumber} ${
+            currentPage === i ? styles.selected : ""
+          }`}
+          onClick={() => handlePageClick(i)}
+        >
+          <button
+            className={currentPage === i ? styles.selectedButton : ""}
+            onClick={() => handlePageClick(i)}
+          >
+            {i}
+          </button>
         </li>
       );
     }
