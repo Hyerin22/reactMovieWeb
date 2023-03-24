@@ -51,7 +51,9 @@ export default function NowTrending() {
           ))}
         </div>
       </div>
-      <Footer />
+      <div className={styles.footerCont}>
+        <Footer />
+      </div>
     </div>
   );
 }

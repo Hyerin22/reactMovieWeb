@@ -16,7 +16,11 @@
   color: #46a29f;
   font-size: 200px;
   position: absolute;
-  top: -150px;
+  top: 40px;
   left: -5px;
   z-index: -1;
+}
+
+.footerCont {
+  margin-top: 150px;
 }
