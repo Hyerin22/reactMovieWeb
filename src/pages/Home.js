@@ -10,19 +10,13 @@ import Footer from "../components/Footer";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
+import HomeLoader from "../components/HomeLoader";
 
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
   // movie details api: https://yts.mx/api/v2/movie_details.json?movie_id=15527
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
-  // const Group_obj = {
-  //   "Now Trending": "minimun_rating=9",
-  //   Romance: "genre=romance",
-  //   Thriller: "genre=thriller",
-  //   Family: "genre=family",
-  // };
-  // const Group_key_arr = Object.keys(Group_obj);
 
   const getMovies = async () => {
     const json = await (
@@ -42,7 +36,7 @@ export default function Home() {
   return (
     <div>
       {loading ? (
-        <h1>loading...</h1>
+        <HomeLoader />
       ) : (
         <div>
           <Nav />
