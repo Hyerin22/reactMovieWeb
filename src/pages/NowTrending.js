@@ -6,9 +6,11 @@ import styles from "./GenrePages.module.css";
 import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
+import ContentLoader from "../components/ContentLoader";
 
 export default function NowTrending() {
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getTrending = async () => {
     const json = await (
@@ -17,6 +19,7 @@ export default function NowTrending() {
       )
     ).json();
     setMovies(json.data.movies);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -28,28 +31,32 @@ export default function NowTrending() {
       <Nav />
       <div>
         <p className={styles.title}>Now Trending</p>
-        <div className={styles.movieContent}>
-          {movies.map((movie, index) => (
-            <div style={{ position: "relative" }}>
-              {/* Rank Number */}
-              <p className={styles.rank}>{index + 1}</p>
+        {loading ? (
+          <ContentLoader marginT={140} />
+        ) : (
+          <div className={styles.movieContent}>
+            {movies.map((movie, index) => (
+              <div style={{ position: "relative" }}>
+                {/* Rank Number */}
+                <p className={styles.rank}>{index + 1}</p>
 
-              {/* Movies */}
-              <MovieInfo
-                key={movie.id}
-                id={movie.id}
-                coverImg={movie.medium_cover_image}
-                title={movie.title}
-                rating={movie.rating}
-                movieYear={movie.year}
-                genres={movie.genres}
-                summary={movie.summary}
-                runtime={movie.runtime}
-                length={movie.length}
-              />
-            </div>
-          ))}
-        </div>
+                {/* Movies */}
+                <MovieInfo
+                  key={movie.id}
+                  id={movie.id}
+                  coverImg={movie.medium_cover_image}
+                  title={movie.title}
+                  rating={movie.rating}
+                  movieYear={movie.year}
+                  genres={movie.genres}
+                  summary={movie.summary}
+                  runtime={movie.runtime}
+                  length={movie.length}
+                />
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className={styles.footerCont}>
         <Footer />
