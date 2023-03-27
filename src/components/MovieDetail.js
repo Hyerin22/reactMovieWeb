@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 import styles from "./MovieDetail.module.css";
 
@@ -58,3 +59,12 @@ export default function MovieDetail({
     </div>
   );
 }
+
+MovieDetail.propTypes = {
+  title: PropTypes.string.isRequired,
+  movieYear: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+  runtime: PropTypes.number.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
+  summary: PropTypes.string.isRequired,
+};
