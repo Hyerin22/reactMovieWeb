@@ -15,6 +15,6 @@ export default function ContentLoader({ marginT = 140, marginB = 200 }) {
 }
 
 ContentLoader.propTypes = {
-  marginT: PropTypes.string,
-  marginB: PropTypes.string,
+  marginT: PropTypes.number,
+  marginB: PropTypes.number,
 };

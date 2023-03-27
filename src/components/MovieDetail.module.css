@@ -20,14 +20,15 @@ h3 {
   margin-bottom: 20px;
 }
 .secondLine > h3 {
-  margin-right: 40px;
+  margin: 0 40px 0 0;
 }
 
 .genre {
   display: flex;
+  margin-bottom: 20px;
 }
 .genre > h3 {
-  margin-right: 10px;
+  margin: 0 20px 0 0;
 }
 
 .summary > p {
