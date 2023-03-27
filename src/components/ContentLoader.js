@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ContentLoader.module.css";
+import PropTypes from "prop-types";
 
 export default function ContentLoader({ marginT = 140, marginB = 200 }) {
   return (
@@ -12,3 +13,8 @@ export default function ContentLoader({ marginT = 140, marginB = 200 }) {
     </div>
   );
 }
+
+ContentLoader.propTypes = {
+  marginT: PropTypes.string,
+  marginB: PropTypes.string,
+};

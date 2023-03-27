@@ -85,7 +85,6 @@ export default function Romance() {
               ))}
             </div>
             <Pagination
-              lastPage={indexOfLastMovie}
               currentPage={currentPage}
               totalPages={totalPages}
               handlePageClick={handlePageClick}

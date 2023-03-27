@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -57,3 +58,11 @@ export default function Pagination({
     </div>
   );
 }
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number.isRequired,
+  totalPages: PropTypes.number.isRequired,
+  handlePageClick: PropTypes.func.isRequired,
+  handlePrevPage: PropTypes.func.isRequired,
+  handleNextPage: PropTypes.func.isRequired,
+};
