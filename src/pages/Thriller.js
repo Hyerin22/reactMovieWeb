@@ -6,9 +6,16 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 import Pagination from "../components/Pagination";
+import ContentLoader from "../components/ContentLoader";
 
 export default function Thriller() {
+  // for data
   const [movies, setMovies] = useState([]);
+
+  // for loading
+  const [loading, setLoading] = useState(true);
+
+  // for pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalpages] = useState(1);
 
@@ -17,6 +24,7 @@ export default function Thriller() {
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
   const currentPageMoveis = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
+  // for importing data
   const getData = async () => {
     const json = await (
       await fetch(
@@ -25,6 +33,7 @@ export default function Thriller() {
     ).json();
     setMovies(json.data.movies);
     setTotalpages(Math.ceil(json.data.movies.length / moviesPerPage));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -51,32 +60,38 @@ export default function Thriller() {
       <Nav />
       <div>
         <p className={styles.title}># Thriller</p>
-        <div className={styles.movieContent}>
-          {currentPageMoveis.map((movie) => (
-            <div>
-              {/* Movies */}
-              <MovieInfo
-                key={movie.id}
-                id={movie.id}
-                coverImg={movie.medium_cover_image}
-                title={movie.title}
-                rating={movie.rating}
-                movieYear={movie.year}
-                genres={movie.genres}
-                summary={movie.summary}
-                runtime={movie.runtime}
-                length={movie.length}
-              />
+        {loading ? (
+          <ContentLoader />
+        ) : (
+          <div>
+            <div className={styles.movieContent}>
+              {currentPageMoveis.map((movie) => (
+                <div>
+                  {/* Movies */}
+                  <MovieInfo
+                    key={movie.id}
+                    id={movie.id}
+                    coverImg={movie.medium_cover_image}
+                    title={movie.title}
+                    rating={movie.rating}
+                    movieYear={movie.year}
+                    genres={movie.genres}
+                    summary={movie.summary}
+                    runtime={movie.runtime}
+                    length={movie.length}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          handlePageClick={handlePageClick}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-        />
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              handlePageClick={handlePageClick}
+              handlePrevPage={handlePrevPage}
+              handleNextPage={handleNextPage}
+            />
+          </div>
+        )}
       </div>
       <Footer />
     </div>

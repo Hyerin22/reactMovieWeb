@@ -6,9 +6,16 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 import Pagination from "../components/Pagination";
+import ContentLoader from "../components/ContentLoader";
 
 export default function Romance() {
+  // for data
   const [movies, setMovies] = useState([]);
+
+  // for loading
+  const [loading, setLoading] = useState(true);
+
+  // for pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
@@ -17,6 +24,7 @@ export default function Romance() {
   const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
   const currentPageMoveis = movies.slice(indexOfFirstMovie, indexOfLastMovie);
 
+  // import data
   const getData = async () => {
     const json = await (
       await fetch(
@@ -25,6 +33,7 @@ export default function Romance() {
     ).json();
     setMovies(json.data.movies);
     setTotalPages(Math.ceil(json.data.movies.length / moviesPerPage));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -52,33 +61,39 @@ export default function Romance() {
       <Nav />
       <div>
         <p className={styles.title}># Romance</p>
-        <div className={styles.movieContent}>
-          {currentPageMoveis.map((movie) => (
-            <div>
-              {/* Movies */}
-              <MovieInfo
-                key={movie.id}
-                id={movie.id}
-                coverImg={movie.medium_cover_image}
-                title={movie.title}
-                rating={movie.rating}
-                movieYear={movie.year}
-                genres={movie.genres}
-                summary={movie.summary}
-                runtime={movie.runtime}
-                length={movie.length}
-              />
+        {loading ? (
+          <ContentLoader />
+        ) : (
+          <div>
+            <div className={styles.movieContent}>
+              {currentPageMoveis.map((movie) => (
+                <div>
+                  {/* Movies */}
+                  <MovieInfo
+                    key={movie.id}
+                    id={movie.id}
+                    coverImg={movie.medium_cover_image}
+                    title={movie.title}
+                    rating={movie.rating}
+                    movieYear={movie.year}
+                    genres={movie.genres}
+                    summary={movie.summary}
+                    runtime={movie.runtime}
+                    length={movie.length}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        <Pagination
-          lastPage={indexOfLastMovie}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          handlePageClick={handlePageClick}
-          handlePrevPage={handlePrevPage}
-          handleNextPage={handleNextPage}
-        />
+            <Pagination
+              lastPage={indexOfLastMovie}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              handlePageClick={handlePageClick}
+              handlePrevPage={handlePrevPage}
+              handleNextPage={handleNextPage}
+            />
+          </div>
+        )}
       </div>
       <Footer />
     </div>

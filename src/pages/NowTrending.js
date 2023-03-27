@@ -9,9 +9,12 @@ import Footer from "../components/Footer";
 import ContentLoader from "../components/ContentLoader";
 
 export default function NowTrending() {
+  // for data
   const [movies, setMovies] = useState([]);
+  // for loading
   const [loading, setLoading] = useState(true);
 
+  // for importing data
   const getTrending = async () => {
     const json = await (
       await fetch(
@@ -32,7 +35,7 @@ export default function NowTrending() {
       <div>
         <p className={styles.title}>Now Trending</p>
         {loading ? (
-          <ContentLoader marginT={140} />
+          <ContentLoader marginB={100} />
         ) : (
           <div className={styles.movieContent}>
             {movies.map((movie, index) => (
