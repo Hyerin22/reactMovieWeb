@@ -20,7 +20,7 @@ export default function MovieDetail({
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <div className={styles.firstLine}>
         <h1 className={styles.title}>{title}</h1>
         <button onClick={onFav} className={styles.heart}>

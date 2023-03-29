@@ -1,3 +1,6 @@
+.container {
+  padding: 0 140px;
+}
 .firstLine {
   display: flex;
   align-items: center;
@@ -7,10 +10,21 @@
   margin: 0 50px 0 0;
 }
 
-button {
+.heartIcon {
+  opacity: 0.3;
+}
+
+.heartIcon:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.heart {
   background-color: transparent;
   border: none;
 }
+
 h3 {
   font-weight: 400;
 }
