@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Coverflow from "react-coverflow";
 
 import styles from "./Home.module.css";
@@ -64,19 +64,16 @@ export default function Home() {
               }}
             >
               {movies.map((movie) => (
-                <img
-                  src={movie.medium_cover_image}
-                  alt={movie.title}
-                  // eslint-disable-next-line no-template-curly-in-string
-                  data-action="/movie/${movie.id}"
-                />
+                <Link to={`/movie/${movie.id}`}>
+                  <img src={movie.medium_cover_image} alt={movie.title} />
+                </Link>
               ))}
             </Coverflow>
 
             {/* Slide */}
             {/* Now Trending */}
             <div className={styles.slideCont}>
-              <NavLink to="nowTrending">
+              <Link to="nowTrending">
                 <div className={styles.linkCont}>
                   <p className={styles.subTitle}>Now Trending</p>
                   <FontAwesomeIcon
@@ -85,7 +82,7 @@ export default function Home() {
                     size="xl"
                   />
                 </div>
-              </NavLink>
+              </Link>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&minimum_rating=9&sort_by=year`}
               />
@@ -93,7 +90,7 @@ export default function Home() {
 
             {/* Romance */}
             <div className={styles.slideCont}>
-              <NavLink to="Romance">
+              <Link to="Romance">
                 <div className={styles.linkCont}>
                   <p className={styles.subTitle}>Romance</p>
                   <FontAwesomeIcon
@@ -102,7 +99,7 @@ export default function Home() {
                     size="xl"
                   />
                 </div>
-              </NavLink>
+              </Link>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=romance`}
               />
@@ -110,7 +107,7 @@ export default function Home() {
 
             {/* Thriller */}
             <div className={styles.slideCont}>
-              <NavLink to="Thriller">
+              <Link to="Thriller">
                 <div className={styles.linkCont}>
                   <p className={styles.subTitle}>Thriller</p>
                   <FontAwesomeIcon
@@ -119,7 +116,7 @@ export default function Home() {
                     size="xl"
                   />
                 </div>
-              </NavLink>
+              </Link>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=thriller`}
               />
@@ -127,7 +124,7 @@ export default function Home() {
 
             {/* Family */}
             <div className={styles.slideCont}>
-              <NavLink to="Family">
+              <Link to="Family">
                 <div className={styles.linkCont}>
                   <p className={styles.subTitle}>Family</p>
                   <FontAwesomeIcon
@@ -136,7 +133,7 @@ export default function Home() {
                     size="xl"
                   />
                 </div>
-              </NavLink>
+              </Link>
               <Slide
                 apiLink={`https://yts.mx/api/v2/list_movies.json?limit=10&genre=family`}
               />
