@@ -1,0 +1,14 @@
+.heartIcon {
+  opacity: 0.3;
+}
+
+.heartIcon:hover {
+  transform: scale(1.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.heart {
+  background-color: transparent;
+  border: none;
+}

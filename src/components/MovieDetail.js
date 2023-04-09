@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
 import styles from "./MovieDetail.module.css";
+import FavButton from "./FavButton";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
@@ -14,33 +15,11 @@ export default function MovieDetail({
   genres,
   summary,
 }) {
-  const [toggle, setToggle] = useState(false);
-  const onFav = () => {
-    setToggle((current) => !current);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.firstLine}>
         <h1 className={styles.title}>{title}</h1>
-        <button onClick={onFav} className={styles.heart}>
-          {!toggle ? (
-            <FontAwesomeIcon
-              className={styles.heartIcon}
-              icon={faHeart}
-              color="#EC6640"
-              size="3x"
-            />
-          ) : (
-            <FontAwesomeIcon
-              className={styles.heartIcon}
-              icon={faHeart}
-              color="#EC6640"
-              style={{ opacity: 1 }}
-              size="3x"
-            />
-          )}
-        </button>
+        <FavButton title={title} />
       </div>
 
       <div className={styles.secondLine}>

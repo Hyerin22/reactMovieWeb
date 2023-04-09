@@ -3,9 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import styles from "./MovieInfo.module.css";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import FavButton from "./FavButton";
 
 export default function MovieInfo({
   coverImg,
@@ -17,11 +15,6 @@ export default function MovieInfo({
   genres,
   summary,
 }) {
-  const [toggle, setToggle] = useState(false);
-
-  const onFav = () => {
-    setToggle((current) => !current);
-  };
   return (
     <div>
       <div className={styles.container}>
@@ -38,26 +31,7 @@ export default function MovieInfo({
             {/* movie title and heart */}
             <div className={styles.infoTop}>
               <h3 className={styles.title}>{title}</h3>
-              <div>
-                <button onClick={onFav} className={styles.heart}>
-                  {!toggle ? (
-                    <FontAwesomeIcon
-                      className={styles.heartIcon}
-                      icon={faHeart}
-                      color="#EC6640"
-                      size="3x"
-                    />
-                  ) : (
-                    <FontAwesomeIcon
-                      className={styles.heartIcon}
-                      icon={faHeart}
-                      color="#EC6640"
-                      style={{ opacity: 1 }}
-                      size="3x"
-                    />
-                  )}
-                </button>
-              </div>
+              <div>{/* <FavButton title={title} /> */}</div>
             </div>
 
             {/* movie year, rating, runtime */}
