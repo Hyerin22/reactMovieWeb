@@ -5,7 +5,16 @@ import styles from "./FavButton.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
-export default function FavButton({ title }) {
+export default function FavButton({
+  coverImg,
+  title,
+  id,
+  movieYear,
+  rating,
+  runtime,
+  genres,
+  summary,
+}) {
   const [toggle, setToggle] = useState(false);
   const [favMovie, setFavMovie] = useState([]);
 
@@ -25,19 +34,22 @@ export default function FavButton({ title }) {
 
   // check if the movie is in the favList or not
   useEffect(() => {
-    const isFav = favMovie.some((movie) => movie.title === title);
+    const isFav = favMovie.some((movie) => movie.id === id);
     setToggle(isFav);
-  }, [favMovie, title]);
+  }, [favMovie, id]);
 
   const onFavToggle = () => {
     if (toggle) {
       // remove from list
-      setFavMovie((favList) =>
-        favList.filter((movie) => movie.title !== title)
+      setFavMovie((prevFavList) =>
+        prevFavList.filter((movie) => movie.id !== id)
       );
     } else {
       // add to list
-      setFavMovie((favList) => [...favList, { title }]);
+      setFavMovie((prevFavList) => [
+        ...prevFavList,
+        { coverImg, title, id, movieYear, rating, runtime, genres, summary },
+      ]);
     }
     setToggle((current) => !current);
   };

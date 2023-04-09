@@ -15,7 +15,7 @@ export default function Nav() {
       </NavLink>
       <NavLinks />
       <div className={styles.iconNav}>
-        <NavLink>
+        <NavLink to="/Favourite">
           <FontAwesomeIcon icon={faHeart} color="#66FCF1" size="lg" />
         </NavLink>
 

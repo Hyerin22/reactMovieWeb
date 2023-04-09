@@ -49,6 +49,8 @@ export default function Detail() {
             runtime={movie.runtime}
             genres={movie.genres}
             summary={movie.description_full}
+            id={movie.id}
+            coverImg={movie.medium_cover_image}
           />
           <div className={styles.footer}>
             <Footer />

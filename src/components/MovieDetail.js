@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import styles from "./MovieDetail.module.css";
 import FavButton from "./FavButton";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
 
 export default function MovieDetail({
   title,
@@ -14,12 +12,23 @@ export default function MovieDetail({
   runtime,
   genres,
   summary,
+  coverImg,
+  id,
 }) {
   return (
     <div className={styles.container}>
       <div className={styles.firstLine}>
         <h1 className={styles.title}>{title}</h1>
-        <FavButton title={title} />
+        <FavButton
+          title={title}
+          coverImg={coverImg}
+          id={id}
+          movieYear={movieYear}
+          rating={rating}
+          runtime={runtime}
+          genres={genres}
+          summary={summary}
+        />
       </div>
 
       <div className={styles.secondLine}>
