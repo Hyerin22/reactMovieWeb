@@ -10,7 +10,6 @@ export default function MovieInfo({
   id,
   movieYear,
   rating,
-  runtime,
   genres,
   summary,
 }) {
@@ -32,13 +31,12 @@ export default function MovieInfo({
               <h3 className={styles.title}>{title}</h3>
             </div>
 
-            {/* movie year, rating, runtime */}
+            {/* movie year, rating */}
             <div className={styles.infoMid}>
               <div className={styles.flex}>
                 <p>{movieYear}</p>
                 <p>⭐️ {rating}</p>
               </div>
-              <p>{runtime === 0 ? `N/A` : `${runtime} m`}</p>
             </div>
 
             {/* summary */}
@@ -65,12 +63,11 @@ export default function MovieInfo({
 }
 
 MovieInfo.propTypes = {
-  // coverImg: PropTypes.string.isRequired,
+  coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  // movieYear: PropTypes.number.isRequired,
+  movieYear: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
-  runtime: PropTypes.number.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   summary: PropTypes.string.isRequired,
 };

@@ -46,7 +46,7 @@ export default function Detail() {
             title={movie.title}
             movieYear={movie.year}
             rating={movie.rating}
-            runtime={movie.runtime}
+            likeCount={movie.like_count}
             genres={movie.genres}
             summary={movie.description_full}
             id={movie.id}

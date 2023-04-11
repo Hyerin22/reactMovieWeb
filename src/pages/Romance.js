@@ -67,7 +67,7 @@ export default function Romance() {
           <div>
             <div className={styles.movieContent}>
               {currentPageMoveis.map((movie) => (
-                <div>
+                <div key={movie.id}>
                   {/* Movies */}
                   <MovieInfo
                     key={movie.id}
@@ -78,7 +78,6 @@ export default function Romance() {
                     movieYear={movie.year}
                     genres={movie.genres}
                     summary={movie.summary}
-                    runtime={movie.runtime}
                     length={movie.length}
                   />
                 </div>

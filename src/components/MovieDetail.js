@@ -4,11 +4,14 @@ import PropTypes from "prop-types";
 import styles from "./MovieDetail.module.css";
 import FavButton from "./FavButton";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+
 export default function MovieDetail({
   title,
   movieYear,
   rating,
-  runtime,
+  likeCount,
   genres,
   summary,
   coverImg,
@@ -24,7 +27,6 @@ export default function MovieDetail({
           id={id}
           movieYear={movieYear}
           rating={rating}
-          runtime={runtime}
           genres={genres}
           summary={summary}
         />
@@ -32,8 +34,14 @@ export default function MovieDetail({
 
       <div className={styles.secondLine}>
         <h3>{movieYear}</h3>
-        <h3>{runtime === 0 ? `N/A` : `${runtime} m`}</h3>
         <h3>⭐️ {rating}</h3>
+        <h3>
+          👍🏻 {likeCount}
+          <div className={styles.iconCont}>
+            <FontAwesomeIcon size="lg" icon={faCircleQuestion} />
+            <div className={styles.msgBox}>Like count from yts.mx</div>
+          </div>
+        </h3>
       </div>
 
       <div className={styles.genre}>
@@ -53,7 +61,7 @@ MovieDetail.propTypes = {
   title: PropTypes.string.isRequired,
   movieYear: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
-  runtime: PropTypes.number.isRequired,
+  likeCount: PropTypes.number.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,
   summary: PropTypes.string.isRequired,
 };

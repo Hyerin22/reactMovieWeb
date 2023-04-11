@@ -64,7 +64,6 @@ export default function Favourite() {
                 movieYear={movie.movieYear}
                 genres={movie.genres}
                 summary={movie.summary}
-                runtime={movie.runtime}
                 length={movie.length}
               />
             ))

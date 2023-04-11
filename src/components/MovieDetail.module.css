@@ -17,9 +17,43 @@ h3 {
 .secondLine {
   display: flex;
   margin-bottom: 20px;
+  cursor: default;
 }
 .secondLine > h3 {
   margin: 0 40px 0 0;
+}
+
+.secondLine > h3:last-child {
+  display: flex;
+  justify-content: baseline;
+}
+
+svg {
+  margin-left: 10px;
+  color: #c5c6c8;
+  cursor: pointer;
+}
+
+.iconCont {
+  display: flex;
+  position: relative;
+}
+
+.msgBox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 35px;
+  width: 150px;
+  background-color: #202833;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  color: #66fcf1;
+  font-size: 14px;
+}
+.iconCont:hover .msgBox {
+  display: block;
 }
 
 .genre {

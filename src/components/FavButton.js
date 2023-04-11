@@ -11,7 +11,6 @@ export default function FavButton({
   id,
   movieYear,
   rating,
-  runtime,
   genres,
   summary,
 }) {
@@ -48,7 +47,7 @@ export default function FavButton({
       // add to list
       setFavMovie((prevFavList) => [
         ...prevFavList,
-        { coverImg, title, id, movieYear, rating, runtime, genres, summary },
+        { coverImg, title, id, movieYear, rating, genres, summary },
       ]);
     }
     setToggle((current) => !current);

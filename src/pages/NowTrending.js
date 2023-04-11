@@ -39,7 +39,7 @@ export default function NowTrending() {
         ) : (
           <div className={styles.movieContent}>
             {movies.map((movie, index) => (
-              <div style={{ position: "relative" }}>
+              <div style={{ position: "relative" }} key={movie.id}>
                 {/* Rank Number */}
                 <p className={styles.rank}>{index + 1}</p>
 
@@ -53,7 +53,6 @@ export default function NowTrending() {
                   movieYear={movie.year}
                   genres={movie.genres}
                   summary={movie.summary}
-                  runtime={movie.runtime}
                   length={movie.length}
                 />
               </div>
