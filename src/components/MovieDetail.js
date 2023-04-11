@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 
 import styles from "./MovieDetail.module.css";
 import FavButton from "./FavButton";
@@ -49,6 +48,8 @@ export default function MovieDetail({
 }
 
 MovieDetail.propTypes = {
+  id: PropTypes.number.isRequired,
+  converImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   movieYear: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,

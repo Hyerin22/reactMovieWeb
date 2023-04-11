@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 import styles from "./MovieInfo.module.css";
-import FavButton from "./FavButton";
 
 export default function MovieInfo({
   coverImg,
@@ -31,7 +30,6 @@ export default function MovieInfo({
             {/* movie title and heart */}
             <div className={styles.infoTop}>
               <h3 className={styles.title}>{title}</h3>
-              <div>{/* <FavButton title={title} /> */}</div>
             </div>
 
             {/* movie year, rating, runtime */}

@@ -58,8 +58,8 @@ export default function Favourite() {
               <MovieInfo
                 key={movie.id}
                 id={movie.id}
-                coverImg={movie.medium_cover_image}
                 title={movie.title}
+                coverImg={movie.medium_cover_image}
                 rating={movie.rating}
                 movieYear={movie.year}
                 genres={movie.genres}
@@ -72,13 +72,17 @@ export default function Favourite() {
             <p className={styles.noMovie}>No movies yet in your list.</p>
           )}
         </div>
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.ceil(favMovies.length / moviesPerPage)}
-          handlePageClick={handlePageClick}
-          handleNextPage={handleNextPage}
-          handlePrevPage={handlePrevPage}
-        />
+        {currentPageMoveis.length > 0 ? (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(favMovies.length / moviesPerPage)}
+            handlePageClick={handlePageClick}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+          />
+        ) : (
+          ""
+        )}
       </div>
       <Footer />
     </div>
