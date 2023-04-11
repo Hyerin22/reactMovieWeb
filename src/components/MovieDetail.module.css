@@ -28,7 +28,7 @@ h3 {
   justify-content: baseline;
 }
 
-svg {
+.iconCont > svg {
   margin-left: 10px;
   color: #c5c6c8;
   cursor: pointer;
