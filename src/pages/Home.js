@@ -45,7 +45,7 @@ export default function Home() {
           <div className={styles.middle}>
             {/* coverflow */}
             <Coverflow
-              displayQuantityOfSide={3}
+              displayQuantityOfSide={2}
               navigation={false}
               infiniteScroll={false}
               enableHeading={true}
