@@ -65,10 +65,10 @@ export default function MovieInfo({
 }
 
 MovieInfo.propTypes = {
-  coverImg: PropTypes.string.isRequired,
+  // coverImg: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
-  movieYear: PropTypes.number.isRequired,
+  // movieYear: PropTypes.number.isRequired,
   rating: PropTypes.number.isRequired,
   runtime: PropTypes.number.isRequired,
   genres: PropTypes.arrayOf(PropTypes.string).isRequired,

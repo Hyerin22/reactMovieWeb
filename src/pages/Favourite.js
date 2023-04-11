@@ -59,9 +59,9 @@ export default function Favourite() {
                 key={movie.id}
                 id={movie.id}
                 title={movie.title}
-                coverImg={movie.medium_cover_image}
+                coverImg={movie.coverImg}
                 rating={movie.rating}
-                movieYear={movie.year}
+                movieYear={movie.movieYear}
                 genres={movie.genres}
                 summary={movie.summary}
                 runtime={movie.runtime}
