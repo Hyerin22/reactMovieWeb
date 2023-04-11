@@ -64,7 +64,7 @@ export default function Home() {
               }}
             >
               {movies.map((movie) => (
-                <Link to={`/movie/${movie.id}`}>
+                <Link key={movie.id} to={`/movie/${movie.id}`}>
                   <img src={movie.medium_cover_image} alt={movie.title} />
                 </Link>
               ))}
