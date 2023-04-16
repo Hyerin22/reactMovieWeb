@@ -19,7 +19,7 @@ export default function Nav() {
           <FontAwesomeIcon icon={faHeart} color="#66FCF1" size="lg" />
         </NavLink>
 
-        <NavLink>
+        <NavLink to="/Search">
           <FontAwesomeIcon icon={faMagnifyingGlass} color="#66FCF1" size="lg" />
         </NavLink>
       </div>

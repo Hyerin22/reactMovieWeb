@@ -7,6 +7,7 @@ import Romance from "../pages/Romance";
 import Thriller from "../pages/Thriller";
 import Family from "../pages/Family";
 import Favourite from "../pages/Favourite";
+import Search from "../pages/Search";
 
 export default function AppRouter() {
   return (
@@ -19,6 +20,7 @@ export default function AppRouter() {
         <Route path="thriller" element={<Thriller />}></Route>
         <Route path="family" element={<Family />}></Route>
         <Route path="favourite" element={<Favourite />}></Route>
+        <Route path="search" element={<Search />}></Route>
       </Routes>
     </Router>
   );
