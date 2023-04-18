@@ -8,18 +8,15 @@ import styles from "./Search.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Movie from "../components/Movie";
+import Footer from "../components/Footer";
 
 export default function Search() {
-  const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const [search, setSearch] = useState("");
 
   const getMovies = async () => {
-    const json = await (
-      await fetch(
-        `https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year`
-      )
-    ).json();
+    const url = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=rating&limit=50`;
+    const json = await (await fetch(url)).json();
     setMovies(json.data.movies);
   };
 
@@ -29,23 +26,32 @@ export default function Search() {
 
   const onChange = (e) => {
     setSearch(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
-  const filterTitle = movies.filter((m) => {
-    return m.title.replace(
-      " ",
-      "".toLowerCase().includes(search.toLowerCase().replace(" ", ""))
-    );
-  });
+  const filterTitle = movies.filter((m) =>
+    m.title.toLowerCase().includes(search.toLowerCase())
+  );
 
-  console.log(filterTitle);
+  // console.log(filterTitle);
 
   const searchMovie = () => {
     if (search === "") {
-      return;
+      return null;
     } else if (filterTitle.length < 1) {
-      return <p>Couldn't find</p>;
+      return <p className={styles.notFound}>Couldn't find</p>;
+    } else {
+      return filterTitle.map((movie) => (
+        <Movie
+          key={movie.id}
+          id={movie.id}
+          coverImg={movie.medium_cover_image}
+          title={movie.title}
+          rating={movie.rating}
+          movieYear={movie.year}
+          genres={movie.genres}
+        />
+      ));
     }
   };
 
@@ -69,20 +75,8 @@ export default function Search() {
           </div>
         </div>
         <div className={styles.found}>{searchMovie()}</div>
-        <div className={styles.content}>
-          {filterTitle.map((movie) => (
-            <Movie
-              key={movie.id}
-              id={movie.id}
-              coverImg={movie.medium_cover_image}
-              title={movie.title}
-              rating={movie.rating}
-              movieYear={movie.year}
-              genres={movie.genres}
-            />
-          ))}
-        </div>
       </div>
+      <Footer />
     </div>
   );
 }
