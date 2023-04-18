@@ -13,4 +13,4 @@ This project is a movie website implemented by React.js
 https://www.figma.com/file/Bxg5U4t0CocDjvlltdQT4j/react-movie-web?node-id=0%3A1&t=bmHmT2pzQWGzBGCJ-1
 
 ## Result
-will be uploaded
+https://hyerin22.github.io/reactMovieWeb
