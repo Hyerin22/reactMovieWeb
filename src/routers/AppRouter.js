@@ -11,7 +11,7 @@ import Search from "../pages/Search";
 
 export default function AppRouter() {
   return (
-    <Router>
+    <Router basename="/reactMovieWeb">
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="movie/:id" element={<Detail />}></Route>
