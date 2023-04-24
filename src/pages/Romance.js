@@ -7,6 +7,7 @@ import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 import Pagination from "../components/Pagination";
 import ContentLoader from "../components/ContentLoader";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Romance() {
   // for data
@@ -14,6 +15,13 @@ export default function Romance() {
 
   // for loading
   const [loading, setLoading] = useState(true);
+
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   // for pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,6 +67,7 @@ export default function Romance() {
   return (
     <div>
       <Nav />
+      <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       <div>
         <p className={styles.title}># Romance</p>
         {loading ? (

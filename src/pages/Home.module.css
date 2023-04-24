@@ -40,3 +40,32 @@ a {
   margin-bottom: 80px;
   justify-content: center;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* styles for extra small devices */
+  .title {
+    font-size: 30px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .middle {
+    margin: 80px 80px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 601px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  /* styles for small devices */
+}
+
+/* Medium devices (landscape tablets, 769px to 992px) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  /* styles for medium devices */
+}
+
+/* Large devices (laptops/desktops, 993px and up) */
+@media only screen and (min-width: 993px) {
+  /* styles for large devices */
+}

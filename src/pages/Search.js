@@ -9,11 +9,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import Movie from "../components/Movie";
 import Footer from "../components/Footer";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Search() {
+  // for data
   const [movies, setMovies] = useState([]);
+  // for searching
   const [search, setSearch] = useState("");
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // for importing data
   const getMovies = async () => {
     const url = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=rating&limit=50`;
     const json = await (await fetch(url)).json();
@@ -58,6 +68,7 @@ export default function Search() {
   return (
     <div>
       <Nav />
+      <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       <div className={styles.container}>
         <div className={styles.search}>
           <div className={styles.input}>

@@ -7,12 +7,19 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Footer from "../components/Footer";
 import ContentLoader from "../components/ContentLoader";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function NowTrending() {
   // for data
   const [movies, setMovies] = useState([]);
   // for loading
   const [loading, setLoading] = useState(true);
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   // for importing data
   const getTrending = async () => {
@@ -32,6 +39,7 @@ export default function NowTrending() {
   return (
     <div>
       <Nav />
+      <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       <div>
         <p className={styles.title}>Now Trending</p>
         {loading ? (

@@ -5,10 +5,18 @@ import Nav from "../components/Nav";
 import MovieInfo from "../components/MovieInfo";
 import Pagination from "../components/Pagination";
 import Footer from "../components/Footer";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Favourite() {
   // for data
   const [favMovies, setFavMovies] = useState([]);
+
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   // for pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -50,6 +58,7 @@ export default function Favourite() {
   return (
     <div>
       <Nav />
+      <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       <div>
         <p className={styles.title}>My List</p>
         <div className={styles.container}>

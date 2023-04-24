@@ -7,11 +7,21 @@ import MovieDetail from "../components/MovieDetail";
 import Nav from "../components/Nav";
 import ContentLoader from "../components/ContentLoader";
 import Footer from "../components/Footer";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Detail() {
+  // for loading
   const [loading, setLoading] = useState(true);
+  // for data
   const [movie, setMovie] = useState([]);
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // for importing data
   const { id } = useParams();
   const getMovie = async () => {
     const json = await (
@@ -28,6 +38,7 @@ export default function Detail() {
   return (
     <div>
       <Nav />
+      <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
       {loading ? (
         <ContentLoader marginB={100} />
       ) : (

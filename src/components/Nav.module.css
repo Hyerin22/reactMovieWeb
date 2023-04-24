@@ -32,3 +32,10 @@
 .iconNav > a {
   padding: 0 10px;
 }
+
+/* responsive */
+@media (max-width: 800px) {
+  .navCont {
+    display: none;
+  }
+}

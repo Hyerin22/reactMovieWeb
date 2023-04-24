@@ -11,13 +11,23 @@ import Footer from "../components/Footer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import HomeLoader from "../components/HomeLoader";
+import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
   // movie details api: https://yts.mx/api/v2/movie_details.json?movie_id=15527
-  const [loading, setLoading] = useState(true);
+  // for data
   const [movies, setMovies] = useState([]);
+  // for loading
+  const [loading, setLoading] = useState(true);
+  // for hamburger menu
+  const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  // for importing data
   const getMovies = async () => {
     const json = await (
       await fetch(
@@ -40,12 +50,14 @@ export default function Home() {
       ) : (
         <div>
           <Nav />
+          <HamburgerMenu isOpen={isOpen} toggleMenu={toggleMenu} />
           <p className={styles.title}>Welcome to RINFLIX</p>
 
           <div className={styles.middle}>
             {/* coverflow */}
             <Coverflow
-              displayQuantityOfSide={2}
+              // style={{ zIndex: isOpen ? -100 : "auto" }}
+              displayQuantityOfSide={3}
               navigation={false}
               infiniteScroll={false}
               enableHeading={true}
