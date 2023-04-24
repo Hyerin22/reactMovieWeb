@@ -9,6 +9,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding: 0 80px;
+  justify-items: center;
+  align-content: center;
 }
 
 .rank {
@@ -16,11 +18,77 @@
   color: #46a29f;
   font-size: 200px;
   position: absolute;
-  top: 40px;
-  left: -5px;
+  /* top: 40px; */
+  /* left: -5px; */
   z-index: -1;
 }
 
 .footerCont {
   margin-top: 150px;
+}
+
+/* Extra small devices */
+@media only screen and (max-width: 600px) {
+  /* styles for extra small devices */
+  .title {
+    font-size: 30px;
+  }
+  .movieContent {
+    padding: 0 30px;
+    display: block;
+  }
+  .rank {
+    font-size: 130px;
+    top: -90px;
+  }
+}
+
+/* Small devices */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+  .movieContent {
+    padding: 0 30px;
+    display: block;
+  }
+  .rank {
+    font-size: 170px;
+    top: -90px;
+    left: 30px;
+  }
+}
+
+/* Medium devices */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .movieContent {
+    padding: 0 30px;
+    display: block;
+  }
+  .rank {
+    left: 150px;
+    top: -140px;
+  }
+}
+/* Large devices */
+@media only screen and (min-width: 1025) and (max-width: 1980px) {
+  .movieContent {
+    padding: 0 30px;
+    display: block;
+  }
+  .rank {
+    left: 150px;
+    top: -140px;
+  }
+}
+
+/* Extra Large devices */
+@media only screen and (min-width: 1981px) {
+  .movieContent {
+    padding: 0 10%;
+  }
+  .rank {
+    top: 40px;
+    left: -70px;
+  }
 }

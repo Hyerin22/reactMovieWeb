@@ -40,6 +40,7 @@ p {
   margin-right: 25px;
   position: absolute;
   top: -30px;
+  /* display: none; */
 }
 .movieImg > img {
   width: 170px;
@@ -65,15 +66,56 @@ p {
 }
 
 .genre {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
+  display: flex;
+  flex-wrap: wrap;
 }
 .genre > p {
-  margin: 0px;
+  margin-right: 10px;
 }
 
 .detailLink {
   font-weight: 500;
   text-decoration: underline;
   margin-left: 5px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  /* styles for extra small devices */
+  .contentBox {
+    width: 200px;
+    height: auto;
+  }
+  .title {
+    font-size: 15px;
+    padding-right: 0;
+  }
+  p {
+    font-size: 12px;
+  }
+  .movieImg > img {
+    width: 80px;
+  }
+  .movieInfo {
+    margin-left: 100px;
+  }
+  .movieImg {
+    top: 30px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 601px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  /* styles for small devices */
+}
+
+/* Medium devices (landscape tablets, 769px to 992px) */
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  /* styles for medium devices */
+}
+
+/* Large devices*/
+@media only screen and (min-width: 2000px) {
+  /* styles for large devices */
 }
