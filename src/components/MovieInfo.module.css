@@ -83,6 +83,9 @@ p {
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
   /* styles for extra small devices */
+  .container {
+    margin-top: 100px;
+  }
   .contentBox {
     width: 200px;
     height: auto;

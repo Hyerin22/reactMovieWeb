@@ -59,3 +59,22 @@
 .eachNumber > button.selectedButton {
   color: #fff !important;
 }
+
+/* Small devices (portrait tablets and large phones, 601px to 768px) */
+@media only screen and (max-width: 600px) {
+  /* styles for small devices */
+  .container {
+    margin-bottom: 100px;
+  }
+  .arrowButton > svg {
+    width: 20px;
+  }
+  .eachNumber > button {
+    font-size: 20px;
+  }
+
+  .eachNumber {
+    width: 30px;
+    height: 30px;
+  }
+}

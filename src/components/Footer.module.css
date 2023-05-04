@@ -3,3 +3,9 @@
   margin-bottom: 80px;
   justify-content: center;
 }
+@media only screen and (max-width: 600px) {
+  img {
+    width: 130px;
+    height: auto;
+  }
+}
