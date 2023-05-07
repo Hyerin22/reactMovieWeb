@@ -63,13 +63,3 @@ a {
     display: none;
   }
 }
-
-/* Medium devices (landscape tablets, 769px to 992px) */
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-  /* styles for medium devices */
-}
-
-/* Large devices (laptops/desktops, 993px and up) */
-@media only screen and (min-width: 993px) {
-  /* styles for large devices */
-}

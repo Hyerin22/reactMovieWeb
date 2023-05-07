@@ -18,3 +18,48 @@
   margin-top: 100px;
   margin-bottom: 230px;
 }
+
+/* Extra small devices */
+@media only screen and (max-width: 600px) {
+  /* styles for extra small devices */
+  .title {
+    font-size: 30px;
+  }
+  .container {
+    padding: 0 30px;
+    display: block;
+  }
+}
+
+/* Small devices */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .title {
+    font-size: 40px;
+  }
+  .container {
+    padding: 0 30px;
+    display: block;
+  }
+}
+
+/* Medium devices */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .container {
+    padding: 0 30px;
+    display: block;
+  }
+}
+/* Large devices */
+@media only screen and (min-width: 1025) and (max-width: 1980px) {
+  .container {
+    padding: 0 30px;
+    display: block;
+  }
+}
+
+/* Extra Large devices */
+@media only screen and (min-width: 1981px) {
+  .container {
+    padding: 0 10%;
+  }
+}
