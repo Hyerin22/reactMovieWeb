@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
+
+// components
 import Nav from "../components/Nav";
+import Movie from "../components/Movie";
+import Footer from "../components/Footer";
+import HamburgerMenu from "../components/HamburgerMenu";
+import Pagination from "../components/Pagination";
 
 // css
 import styles from "./Search.module.css";
@@ -7,9 +13,6 @@ import styles from "./Search.module.css";
 // icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
-import Movie from "../components/Movie";
-import Footer from "../components/Footer";
-import HamburgerMenu from "../components/HamburgerMenu";
 
 export default function Search() {
   // for data
@@ -18,6 +21,8 @@ export default function Search() {
   const [search, setSearch] = useState("");
   // for hamburger menu
   const [isOpen, setIsOpen] = useState(false);
+  // for pagination
+  const [currentPage, setCurrentPage] = useState(1);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -43,15 +48,34 @@ export default function Search() {
     m.title.toLowerCase().includes(search.toLowerCase())
   );
 
-  // console.log(filterTitle);
+  const moviesPerPage = 8;
+  const indexOfLastMovie = currentPage * moviesPerPage;
+  const indexOfFirstMovie = indexOfLastMovie - moviesPerPage;
+  const currentMovies = filterTitle.slice(indexOfFirstMovie, indexOfLastMovie);
+
+  const handlePageClick = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  const handlePrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextPage = () => {
+    if (currentPage < Math.ceil(filterTitle.length) / moviesPerPage) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
 
   const searchMovie = () => {
     if (search === "") {
       return null;
-    } else if (filterTitle.length < 1) {
+    } else if (currentMovies.length < 1) {
       return <p className={styles.notFound}>Couldn't find</p>;
     } else {
-      return filterTitle.map((movie) => (
+      return currentMovies.map((movie) => (
         <Movie
           key={movie.id}
           id={movie.id}
@@ -86,6 +110,17 @@ export default function Search() {
           </div>
         </div>
         <div className={styles.found}>{searchMovie()}</div>
+        {currentMovies.length < 1 ? (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(filterTitle.length / moviesPerPage)}
+            handlePageClick={handlePageClick}
+            handleNextPage={handleNextPage}
+            handlePrevPage={handlePrevPage}
+          />
+        ) : (
+          ""
+        )}
       </div>
       <Footer />
     </div>

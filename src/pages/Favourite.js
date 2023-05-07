@@ -26,9 +26,7 @@ export default function Favourite() {
     const savedFavMovies = localStorage.getItem("favList");
     if (savedFavMovies) {
       setFavMovies(JSON.parse(savedFavMovies));
-      // setTotalPages(Math.ceil(favMovies.length) / moviesPerPage);
     }
-    // console.log(savedFavMovies);
   }, []);
 
   const moviesPerPage = 4;
