@@ -1,17 +1,27 @@
 import { useState, useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
-import Coverflow from "react-coverflow";
 
+// swiper
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow, Navigation, Mousewheel } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+// css
 import styles from "./Home.module.css";
 
+// components
 import Nav from "../components/Nav";
 import Slide from "../components/Slide";
 import Footer from "../components/Footer";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 import HomeLoader from "../components/HomeLoader";
 import HamburgerMenu from "../components/HamburgerMenu";
+
+// icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowUpRightFromSquare } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
   // movie api : https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year
@@ -55,32 +65,39 @@ export default function Home() {
 
           <div className={styles.middle}>
             {/* coverflow */}
-            <Coverflow
-              // style={{ zIndex: isOpen ? -100 : "auto" }}
-              displayQuantityOfSide={3}
-              navigation={false}
-              infiniteScroll={false}
-              enableHeading={true}
-              clickable={true}
-              enableScroll={true}
-              // active={0}
-              media={{
-                "@media (max-width: 900px)": {
-                  width: "600px",
-                  height: "300px",
+            <Swiper
+              effect={"coverflow"}
+              grabCursor={true}
+              centeredSlides={true}
+              slidesPerView={2}
+              coverflowEffect={{
+                rotate: 10,
+                stretch: 0,
+                depth: 100,
+                modifier: 2,
+                slideShadows: true,
+              }}
+              navigation={true}
+              mousewheel={true}
+              modules={[EffectCoverflow, Navigation, Mousewheel]}
+              className="mySwiper"
+              breakpoints={{
+                768: {
+                  slidesPerView: 3,
                 },
-                "@media (min-width: 900px)": {
-                  width: "1100px",
-                  height: "600px",
+                1024: {
+                  slidesPerView: 4,
                 },
               }}
             >
               {movies.map((movie) => (
                 <Link key={movie.id} to={`/movie/${movie.id}`}>
-                  <img src={movie.medium_cover_image} alt={movie.title} />
+                  <SwiperSlide>
+                    <img src={movie.medium_cover_image} alt={movie.title} />
+                  </SwiperSlide>
                 </Link>
               ))}
-            </Coverflow>
+            </Swiper>
 
             {/* Slide */}
             {/* Now Trending */}

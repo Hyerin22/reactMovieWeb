@@ -8,3 +8,10 @@ a {
   color: white;
   font-weight: 500;
 }
+
+/* for swiper on the home page */
+.swiper {
+  width: 100%;
+  text-align: -webkit-center;
+  --swiper-theme-color: rgb(102, 252, 241);
+}
