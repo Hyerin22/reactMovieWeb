@@ -91,11 +91,11 @@ export default function Home() {
               }}
             >
               {movies.map((movie) => (
-                <Link key={movie.id} to={`/movie/${movie.id}`}>
-                  <SwiperSlide>
+                <SwiperSlide key={movie.id}>
+                  <Link to={`/movie/${movie.id}`}>
                     <img src={movie.medium_cover_image} alt={movie.title} />
-                  </SwiperSlide>
-                </Link>
+                  </Link>
+                </SwiperSlide>
               ))}
             </Swiper>
 
