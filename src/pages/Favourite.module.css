@@ -21,7 +21,6 @@
 
 /* Extra small devices */
 @media only screen and (max-width: 600px) {
-  /* styles for extra small devices */
   .title {
     font-size: 27px;
   }
