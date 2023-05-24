@@ -13,7 +13,7 @@
 .input {
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 50px;
 }
 
@@ -49,6 +49,7 @@
     margin-bottom: 100px;
   }
   .input > input {
+    width: 75%;
     font-size: 15px;
   }
   .notFound {

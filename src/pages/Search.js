@@ -23,6 +23,8 @@ export default function Search() {
   const [isOpen, setIsOpen] = useState(false);
   // for pagination
   const [currentPage, setCurrentPage] = useState(1);
+  // for loading
+  const [loading, setLoading] = useState(true);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,6 +35,7 @@ export default function Search() {
     const url = `https://yts.mx/api/v2/list_movies.json?minimum_rating=8.5&sort_by=rating&limit=50`;
     const json = await (await fetch(url)).json();
     setMovies(json.data.movies);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -45,7 +48,7 @@ export default function Search() {
   };
 
   const filterTitle = movies.filter((m) =>
-    m.title.toLowerCase().includes(search.toLowerCase())
+    m.title.toLowerCase().startsWith(search.toLowerCase())
   );
 
   const moviesPerPage = 8;
@@ -110,7 +113,7 @@ export default function Search() {
           </div>
         </div>
         <div className={styles.found}>{searchMovie()}</div>
-        {currentMovies.length < 1 ? (
+        {filterTitle.length > 0 && search !== "" && (
           <Pagination
             currentPage={currentPage}
             totalPages={Math.ceil(filterTitle.length / moviesPerPage)}
@@ -118,9 +121,8 @@ export default function Search() {
             handleNextPage={handleNextPage}
             handlePrevPage={handlePrevPage}
           />
-        ) : (
-          ""
         )}
+        {console.log(filterTitle)}
       </div>
       <Footer />
     </div>
