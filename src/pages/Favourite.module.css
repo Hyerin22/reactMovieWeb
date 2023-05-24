@@ -23,11 +23,14 @@
 @media only screen and (max-width: 600px) {
   /* styles for extra small devices */
   .title {
-    font-size: 30px;
+    font-size: 27px;
   }
   .container {
     padding: 0 30px;
     display: block;
+  }
+  .noMovie {
+    font-size: 20px;
   }
 }
 
