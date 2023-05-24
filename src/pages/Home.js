@@ -53,6 +53,8 @@ export default function Home() {
   }, []);
   // console.log(movies);
 
+  const middleMovieIdx = Math.floor(movies.length / 2);
+
   return (
     <div>
       {loading ? (
@@ -89,6 +91,7 @@ export default function Home() {
                   slidesPerView: 4,
                 },
               }}
+              initialSlide={middleMovieIdx}
             >
               {movies.map((movie) => (
                 <SwiperSlide key={movie.id}>
